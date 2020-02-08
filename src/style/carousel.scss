@@ -1,0 +1,49 @@
+@import 'colors';
+
+.carousel-container{
+  width: 75vw;
+  margin: 30px auto 0px auto;
+  position: relative;
+  box-shadow: 0 17px 17px -20px rgb(0, 0, 0);
+}
+
+
+.carousel {
+  position: relative;
+  height: 400px;
+}
+
+.slides {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 3em;
+  color: white;
+  line-height: 400px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 750ms;
+  &[data-state=active] {
+    display: block;
+  }
+}
+
+.indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.indicator {
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+{{#each .}}
+<div class='banner-component'  >
+      <div class='image-container' >
+            <img src={{imageUrl}} alt={{name}} class='banner-image' />
+      </div>
+      <div class='content' >
+            <p class='heading' > {{name}} </p>
+            <p class='desc' > {{ description }} </p>
+            <button class='link-button' > {{key}} </button>
+      </div>
+</div>
+{{/each}}
