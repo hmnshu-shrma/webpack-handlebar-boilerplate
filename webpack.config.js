@@ -4,9 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Dotenv = require('dotenv-webpack')
 module.exports = {
-  entry: {
-    bundle: './src/js/app.js'
-  },
+  entry: ['./src/js/app.js', './src/style/main.scss'],
   output: {
     path: path.resolve(__dirname, '../dist')
   },
@@ -70,7 +68,27 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'My awesome service',
-      template: './src/index.hbs'
+      template: './src/index.hbs',
+      filename: 'index.html'
+
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Products',
+      template: './src/products.hbs',
+      filename: 'products.html'
+
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Signup',
+      template: './src/signup.hbs',
+      filename: 'signup.html'
+
+    }),
+    new HtmlWebpackPlugin({
+      title: 'Login',
+      template: './src/login.hbs',
+      filename: 'login.html'
+
     })
   ]
 }

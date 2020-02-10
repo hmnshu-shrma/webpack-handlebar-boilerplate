@@ -1,4 +1,5 @@
 {{#each .}}
+{{#if imageUrl }}
 <div class='banner-component'  >
       <div class='image-container' >
             <img src={{imageUrl}} alt={{name}} class='banner-image' />
@@ -9,4 +10,5 @@
             <button class='link-button' > {{key}} </button>
       </div>
 </div>
+{{/if}}
 {{/each}}

@@ -5,6 +5,7 @@
 @import 'carousel';
 @import 'login-signup';
 @import 'cart';
+@import 'loader';
 body{
   margin:0px;
 }
@@ -38,8 +39,4 @@ body{
   margin: 0 auto;
   color: #fff;
   font-size: 17px;
-}
-
-.display{
-  background:red;
 }
