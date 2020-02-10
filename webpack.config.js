@@ -1,8 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Dotenv = require('dotenv-webpack')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   entry: ['./src/js/app.js', './src/style/main.scss'],
   output: {
@@ -30,19 +30,9 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: {
-
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-
-            }
-          }
+          'style-loader',
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]
@@ -59,12 +49,9 @@ module.exports = {
         handlebarsLoader: {}
       }
     }),
+    new CleanWebpackPlugin(),
     new Dotenv({
       path: './.env'
-    }),
-    new MiniCssExtractPlugin({
-      filename: '[name]-styles.css',
-      chunkFilename: '[id].css'
     }),
     new HtmlWebpackPlugin({
       title: 'My awesome service',
@@ -90,5 +77,9 @@ module.exports = {
       filename: 'login.html'
 
     })
-  ]
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../dist')
+  }
 }
